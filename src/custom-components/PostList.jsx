@@ -6,6 +6,7 @@ const PostList = () => {
   const [body, setBody] = useState("");
   const [author, setAuthor] = useState("");
   const [postList, setPostList] = useState([]);
+  const [errorState, setErrorState] = useState(false);
 
   const handleMessageBody = (event) => {
     setBody(event.target.value);
@@ -31,10 +32,16 @@ const PostList = () => {
 
   const handleAddingAnnouncement = (event) => {
     event.preventDefault();
+    if (author === "" || body === "") {
+      setErrorState(true);
+      return;
+    }
     setPostList((postList) => [
       ...postList,
       { id: Math.floor(Math.random() * 10000), author: author, body: body },
     ]);
+    setAuthor("");
+    setBody("");
   };
 
   return (
@@ -46,6 +53,7 @@ const PostList = () => {
           changeMessageAuthor={handleMessageAuthor}
           changeMessageBody={handleMessageBody}
           addAnnouncement={handleAddingAnnouncement}
+          error={errorState}
         />
       </div>
       <br />

@@ -14,6 +14,7 @@ import {
 const Modal = (props) => {
   const [author, setAuthor] = useState("");
   const [body, setBody] = useState("");
+  const [customError, setCustomError] = useState("");
 
   return (
     <>
@@ -35,12 +36,14 @@ const Modal = (props) => {
               type="text"
               placeholder="Your Name"
               onChange={props.changeMessageAuthor}
+              required="true"
             />
             <textarea
               type="text"
               rows={5}
               placeholder="Type your announcement here ..."
               onChange={props.changeMessageBody}
+              required="true"
             />
 
             <AlertDialogDescription>
@@ -58,6 +61,9 @@ const Modal = (props) => {
               <br />
               <span className="font-black">Announcement:</span>
               <br /> {props.body}
+              <br />
+              {props.error === true && <h3>Can't be empty</h3>}
+              {props.error === false && <h3>Announcement Saved OK...</h3>}
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
