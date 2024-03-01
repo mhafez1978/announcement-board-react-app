@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+p,
+h1,
+h2,
+h3 {
+  color: white;
+}
+button {
+  color: white;
+}
+input,
+textarea {
+  background-color: black;
+  color: green;
+}
