@@ -49,12 +49,16 @@ const PostList = () => {
         />
       </div>
       <br />
-      <div className="flex flex-wrap">
+      <div className="w-[100vw] flex flex-wrap gap-2 justify-center">
         {postList.length > 0 &&
           postList.map((e) => (
             <div
-              className="text-white ml-12 mt-12 border-1 border-yellow-400 rounded-lg z-50"
-              style={{ border: "1px solid white", padding: "20px 40px" }}
+              style={{
+                border: "1px solid white",
+                borderRadius: "24px",
+                padding: "20px 40px",
+                width: "30%",
+              }}
               key={e.id}
             >
               Author: {e.author}
